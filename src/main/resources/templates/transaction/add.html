@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="index">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main role="main" layout:fragment="container" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <form method="post" th:action="@{/transaction/save}" th:object="${transaction}">
+        <h2>samochód</h2>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Numer nadwozia</label>
+            <input type="text" th:field="*{car.bodyNr}" class="form-control" id="formGroupExampleInput">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Rok produkcji(YYYY)</label>
+            <input type="text" th:field="*{car.productionYear}" class="form-control" id="formGroupExampleInput2">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput3">Marka</label>
+            <input type="text" th:field="*{car.mark}" class="form-control" id="formGroupExampleInput3">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput11">Model</label>
+            <input type="text" th:field="*{car.model}" class="form-control" id="formGroupExampleInput11">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput4">Numer OC</label>
+            <input type="text" th:field="*{car.ocNr}" class="form-control" id="formGroupExampleInput4">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput5">Rodzaj paliwa</label>
+            <input type="text" th:field="*{car.fuelType}" class="form-control" id="formGroupExampleInput5">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput6">Przebieg</label>
+            <input type="text" th:field="*{car.mileage}" class="form-control" id="formGroupExampleInput6">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput7">Silnik</label>
+            <input type="text" th:field="*{car.engine}" class="form-control" id="formGroupExampleInput7">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput8">Moc</label>
+            <input type="text" th:field="*{car.power}" class="form-control" id="formGroupExampleInput8">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput9">Rodzaj skrzyni biegów</label>
+            <input type="text" th:field="*{car.gearbox}" class="form-control" id="formGroupExampleInput9">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput10">Opis</label>
+            <textarea th:field="*{car.description}" class="form-control" id="formGroupExampleInput10" rows="3"></textarea>
+        </div>
+
+        <h3>Klient</h3>
+
+        <div class="form-group">
+            <label for="formGroupExampleInputc">Imie</label>
+            <input type="text" th:field="*{customer.name}" class="form-control" id="formGroupExampleInputc">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInputc2">Nazwisko</label>
+            <input type="text" th:field="*{customer.surname}" class="form-control" id="formGroupExampleInputc2">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInputc3">Adres</label>
+            <input type="text" th:field="*{customer.adress}" class="form-control" id="formGroupExampleInputc3">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInputc11">Pesel</label>
+            <input type="text" th:field="*{customer.pesel}" class="form-control" id="formGroupExampleInputc11">
+        </div>
+        <div class="form-group">
+
+            <input type="submit" class="form-control" value="ZAPISZ">
+        </div>
+
+    </form>
+</main>
+</body>
+</html>

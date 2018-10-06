@@ -1,0 +1,49 @@
+<!doctype html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en"
+      layout:decorate="index">
+<head>
+    <meta charset="UTF-8">
+    <title>samochody</title>
+</head>
+<body>
+<main role="main" layout:fragment="container" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Lista samochodów</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <span data-feather="calendar"></span>
+                This week
+            </button>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Marka</th>
+            <th scope="col">Model</th>
+            <th scope="col">Rocznik</th>
+            <th scope="col">Przebieg</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  th:each="car : ${cars}">
+            <th scope="row" th:text="${car.carID}"></th>
+            <td th:text="${car.mark}"></td>
+            <td th:text="${car.model}"></td>
+            <td th:text="${car.productionYear}"></td>
+            <td th:text="${car.mileage}"></td>
+            <td><a th:href="@{'/car/details/'+${car.carID}+''}">Szczegóły</a></td>
+            <td><a th:href="@{'/car/edit/'+${car.carID}+''}">Edytuj</a></td>
+            <td><a onclick="return confirm('Are you sure?')" th:href="@{'/car/delete/'+${car.carID}+''}">Usuń</a></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

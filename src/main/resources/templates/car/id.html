@@ -1,0 +1,79 @@
+<!doctype html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en"
+      layout:decorate="index">
+<head>
+    <meta charset="UTF-8">
+    <title>samochody</title>
+</head>
+<body>
+<main role="main" layout:fragment="container" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Lista samochodów</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <span data-feather="calendar"></span>
+                This week
+            </button>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr class>
+            <th class="col-3" scope="col">#</th>
+            <th scope="col">Marka</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row" >Marka</th>
+            <td th:text="${car.mark}"></td>
+        </tr>
+        <tr>
+            <th scope="row" >Model</th>
+            <td th:text="${car.model}"></td>
+        </tr>
+        <tr>
+            <th scope="row" >Rok produkcji</th>
+            <td th:text="${car.productionYear}"></td>
+        </tr>
+        <tr>
+            <th scope="row" >Numer nadwozia</th>
+            <td th:text="${car.bodyNr}"></td>
+        </tr>
+        <tr>
+            <th scope="row" >Numer OC</th>
+            <td th:text="${car.ocNr}"></td>
+        </tr>
+        <tr>
+            <th scope="row" >Przebieg</th>
+            <td th:text="${car.mileage}"></td>
+        </tr>
+        <tr>
+            <th scope="row" >Rodzaj paliwa</th>
+            <td th:text="${car.fuelType}"></td>
+        </tr>
+        <tr>
+            <th scope="row" >Silnik</th>
+            <td th:text="${car.engine}"></td>
+        </tr>
+        <tr>
+            <th scope="row" >Moc</th>
+            <td th:text="${car.power}"></td>
+        </tr>
+        <tr>
+            <th scope="row" >Skrzynia biegów</th>
+            <td th:text="${car.gearbox}"></td>
+        </tr>
+        <tr>
+            <th scope="row" >Opis</th>
+            <td th:text="${car.description}"></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

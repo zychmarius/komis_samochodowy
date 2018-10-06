@@ -1,0 +1,51 @@
+<!doctype html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en"
+      layout:decorate="index">
+<head>
+    <meta charset="UTF-8">
+    <title>Klient</title>
+</head>
+<body>
+<main role="main" layout:fragment="container" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Klient</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <span data-feather="calendar"></span>
+                This week
+            </button>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr class>
+            <th class="col-3" scope="col">#</th>
+            <th scope="col">Kilent</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row" >Imie</th>
+            <td th:text="${customer.name}"></td>
+        </tr>
+        <tr>
+            <th scope="row" >Nazwisko</th>
+            <td th:text="${customer.surname}"></td>
+        </tr>
+        <tr>
+            <th scope="row" >Adres</th>
+            <td th:text="${customer.adress}"></td>
+        </tr>
+        <tr>
+            <th scope="row" >Pesel</th>
+            <td th:text="${customer.pesel}"></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>
