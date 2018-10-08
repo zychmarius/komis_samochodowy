@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="index">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main role="main" layout:fragment="container" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <form method="post" th:action="@{/transaction/savebuy}">
+        <h2>samochód</h2>
+        <div class="form-group">
+            <label for="formGroupExampleInput">ID samochodu</label>
+            <input type="text" readonly="readonly" th:field="${car.carID}" class="form-control" id="formGroupExampleInput" >
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">ID klienta</label>
+            <input type="text" th:field="${idTransporter.customerID}" class="form-control" id="formGroupExampleInput2">
+        </div>
+        <div class="form-group">
+
+            <input type="submit" class="form-control" value="ZATWIERDZ">
+        </div>
+
+    </form>
+</main>
+</body>
+</html>

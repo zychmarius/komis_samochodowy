@@ -10,7 +10,7 @@ public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer transactionID;
+    private Integer transactionID;
 
    @OneToOne(cascade = CascadeType.PERSIST)
    @JoinColumn(name = "carID")

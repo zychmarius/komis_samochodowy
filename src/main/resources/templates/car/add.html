@@ -7,6 +7,11 @@
 </head>
 <body>
 <form layout:fragment="container" method="post" th:action="@{/car/save}" th:object="${car}">
+    <h2>Klient</h2>
+    <div class="form-group">
+        <label for="kliformGroupExampleInput">Numer Klienta</label>
+        <input type="text" th:field="${idTransporter.customerID}" class="form-control" id="kliformGroupExampleInput">
+    </div>
     <h2>samochód</h2>
     <div class="form-group">
         <label for="formGroupExampleInput">Numer nadwozia</label>
@@ -54,7 +59,7 @@
     </div>
     <div class="form-group">
 
-        <input type="submit" class="form-control" value="ZAPISZ">
+        <input type="submit" class="form-control" value="SPRZEDAJ">
     </div>
 
 </form>

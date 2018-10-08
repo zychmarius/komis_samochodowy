@@ -20,14 +20,18 @@ public class CarService {
     }
 
     public Car save(Car car){
-        if(car.getTestDrivesNumber() == null){
-            car.setTestDrivesNumber(0);
-        }
         return carRepository.save(car);
     }
 
+
     public List<Car> findAll(){
         return carRepository.findAll();
+    }
+    public List<Car> findSoldCar(){
+        return carRepository.findCarBySaleStaus(Car.SaleStatus.SOLD);
+    }
+    public List<Car> findAvailableCar(){
+        return carRepository.findCarBySaleStaus(Car.SaleStatus.AVAILABLE);
     }
 
     public Car getCar(Integer id){
@@ -36,5 +40,9 @@ public class CarService {
 
     public void deleteCar(Integer id){
         carRepository.deleteById(id);
+    }
+
+
+    public void isAvailable(Car car) {
     }
 }

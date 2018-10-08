@@ -51,9 +51,15 @@ public class CarToVerifycation {
         @Column
         private OfferType offerType;
 
+
         @OneToOne
         @JoinColumn(name = "customerID")
         private Customer customer;
+
+        @PrePersist
+        private void prePersist(){
+            carStatus = CarStatus.NOT_VERIFIED;
+        }
 
     public Integer getCarID() {
         return carID;

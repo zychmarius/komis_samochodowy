@@ -1,0 +1,101 @@
+<!doctype html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en"
+      layout:decorate="index">
+<head>
+    <meta charset="UTF-8">
+    <title>samochody</title>
+</head>
+<body>
+<main role="main" layout:fragment="container" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <form th:object="${transaction}">
+        <div div class="form-row">
+            <div class="form-group col-md-6">
+                <h3>Dane kupującego</h3>
+                <div>
+                    <label for="formGroupExampleInput">Imie</label>
+                    <input type="text" th:field="*{customer.name}" class="form-control" id="formGroupExampleInput" disabled="disabled">
+                </div>
+                <div>
+                    <label for="formGroupExampleInput2">Nazwisko</label>
+                    <input type="text" th:field="*{customer.surname}" class="form-control" id="formGroupExampleInput2" disabled="disabled">
+                </div>
+                <div>
+                    <label for="formGroupExampleInput3">Adres</label>
+                    <input type="text" th:field="*{customer.adress}" class="form-control" id="formGroupExampleInput3" disabled="disabled">
+                </div>
+                <div>
+                    <label for="formGroupExampleInput11">Pesel</label>
+                    <input type="text" th:field="*{customer.pesel}" class="form-control" id="formGroupExampleInput11" disabled="disabled">
+                </div>
+                <br/>
+                <h3>Dane sprzedającego</h3>
+                <div>
+                    <label for="formGroupExampleInputa">Imie</label>
+                    <input type="text"  class="form-control" id="formGroupExampleInputa" disabled="disabled">
+                </div>
+                <div>
+                    <label for="formGroupExampleInputa">Nazwisko</label>
+                    <input type="text" class="form-control" id="formGroupExampleInputb" disabled="disabled">
+                </div>
+                <div>
+                    <label for="formGroupExampleInputc">Adres</label>
+                    <input type="text"  class="form-control" id="formGroupExampleInputc" disabled="disabled">
+                </div>
+                <div>
+                    <label for="formGroupExampleInputd">Pesel</label>
+                    <input type="text"  class="form-control" id="formGroupExampleInputd" disabled="disabled">
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <h3>Samochód</h3>
+                <div>
+                    <label for="inputBodyNr">Numer nadwozia</label>
+                    <input type="text" th:field="*{car.bodyNr}" class="form-control" id="inputBodyNr" disabled="disabled">
+                </div>
+                <div>
+                    <label for="inputProductionYear">Rok produkcji</label>
+                    <input type="text" th:field="*{car.productionYear}" class="form-control" id="inputProductionYear" disabled="disabled">
+                </div>
+                <div>
+                    <label for="inputMark">Marka</label>
+                    <input type="text" th:field="*{car.mark}" class="form-control" id="inputMark" disabled="disabled">
+                </div>
+                <div>
+                    <label for="inputModel">Model</label>
+                    <input type="text" th:field="*{car.model}" class="form-control" id="inputModel" disabled="disabled">
+                </div>
+                <div>
+                    <label for="inputOcNr">Nr OC</label>
+                    <input type="text" th:field="*{car.ocNr}" class="form-control" id="inputOcNr" disabled="disabled">
+                </div>
+                <div>
+                    <label for="inputFuelType">Nr OC</label>
+                    <input type="text" th:field="*{car.fuelType}" class="form-control" id="inputFuelType" disabled="disabled">
+                </div>
+                <div>
+                    <label for="inputMileage">Przebieg</label>
+                    <input type="text" th:field="*{car.mileage}" class="form-control" id="inputMileage" disabled="disabled">
+                </div>
+                <div>
+                    <label for="inputEngine">Silnik</label>
+                    <input type="text" th:field="*{car.engine}" class="form-control" id="inputEngine" disabled="disabled">
+                </div>
+                <div>
+                    <label for="inputPower">Moc</label>
+                    <input type="text" th:field="*{car.power}" class="form-control" id="inputPower" disabled="disabled">
+                </div>
+                <div>
+                    <label for="inputGearBox">Rodzaj skrzyni biegów</label>
+                    <input type="text" th:field="*{car.gearbox}" class="form-control" id="inputGearBox" disabled="disabled">
+                </div>
+                <div>
+                    <label for="inputDescription">Opis</label>
+                    <textarea th:field="*{car.description}" class="form-control" id="inputDescription" rows="3" disabled="disabled"></textarea>
+                </div>
+            </div>
+        </div>
+    </form>
+</main>
+</body>
+</html>

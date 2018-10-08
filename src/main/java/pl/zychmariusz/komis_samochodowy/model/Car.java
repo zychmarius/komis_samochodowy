@@ -6,6 +6,7 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.*;
 
 @Entity
+@NamedQuery(name = "Car.findCarBySaleStaus", query = "SELECT c FROM Car c WHERE saleStatus = ?1")
 @Table(name = "cars")
 public class Car {
 
@@ -50,7 +51,13 @@ public class Car {
     private SaleStatus saleStatus;
 
     @Column
-    private Integer testDrivesNumber = 0;
+    private Integer testDrivesNumber;
+
+    @PrePersist
+    private void prePersist(){
+        saleStatus = SaleStatus.AVAILABLE;
+        testDrivesNumber = 0;
+    }
 
     public Integer getCarID() {
         return carID;
@@ -164,7 +171,7 @@ public class Car {
         this.saleStatus = saleStatus;
     }
 
-    private enum SaleStatus{
+    public enum SaleStatus{
         AVAILABLE, SOLD
     }
 }
