@@ -53,6 +53,9 @@ public class Car {
     @Column
     private Integer testDrivesNumber;
 
+    @Column
+    private Integer price;
+
     @PrePersist
     private void prePersist(){
         saleStatus = SaleStatus.AVAILABLE;
@@ -169,6 +172,14 @@ public class Car {
 
     public void setSaleStatus(SaleStatus saleStatus) {
         this.saleStatus = saleStatus;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 
     public enum SaleStatus{

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.zychmariusz.komis_samochodowy.model.Car;
+import pl.zychmariusz.komis_samochodowy.model.Customer;
 import pl.zychmariusz.komis_samochodowy.model.IdTransporter;
 import pl.zychmariusz.komis_samochodowy.model.Transaction;
 import pl.zychmariusz.komis_samochodowy.services.CarService;
@@ -60,7 +61,6 @@ public class TransactionController {
     public String createTransaction(Model model){
         model.addAttribute("transaction", new Transaction());
         model.addAttribute("idTransporter", new IdTransporter());
-
         return "transaction/new";
 
     }
@@ -75,25 +75,18 @@ public class TransactionController {
     }
     @GetMapping("/buy/{id}")
     public String byIdCar(@PathVariable("id") Integer carID, Model model) {
-        IdTransporter transporter = new IdTransporter();
-        transporter.setCarID(carID);
+        Customer customer = new Customer();
         Car car = carService.getCar(carID);
 
         model.addAttribute("car", car );
-        model.addAttribute("idTransporter", transporter);
+        model.addAttribute("customer", customer);
         return "transaction/buy";
     }
 
     @PostMapping("/savebuy")
-    public String saveBuyTransaction(@ModelAttribute("idTransporter") IdTransporter idTransporter,
+    public String saveBuyTransaction(@ModelAttribute("customer") Customer customer,
                                      @ModelAttribute("car") Car car){
-        Transaction transaction = new Transaction();
-        car = carService.getCar(car.getCarID());
-        car.setSaleStatus(Car.SaleStatus.SOLD);
-        carService.save(car);
-        transaction.setCar(car);
-        transaction.setCustomer(customerService.getCustomer(idTransporter.getCustomerID()));
-        transactionService.save(transaction);
+        transactionService.saveBuy(car, customer);
         return "redirect:/transaction";
     }
 

@@ -2,11 +2,12 @@ package pl.zychmariusz.komis_samochodowy.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Calendar;
+import java.time.ZoneId;
 import java.util.Date;
 
+
 @Entity
-@Table(name = "contacts")
+@Table(name = "contracts")
 public class Contract {
 
     @Id
@@ -31,7 +32,58 @@ public class Contract {
 
     @PrePersist
     public void prePersist(){
-        date = Calendar.getInstance().getTime();
+        date = Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());
+        if(commision == null){
+            commision = 0;
+        }
+    }
+
+    public Integer getContractID() {
+        return contractID;
+    }
+
+    public void setContractID(Integer contractID) {
+        this.contractID = contractID;
+    }
+
+    public String getContentContract() {
+        return contentContract;
+    }
+
+    public void setContentContract(String contentContract) {
+        this.contentContract = contentContract;
+    }
+
+    public ContractType getContractType() {
+        return contractType;
+    }
+
+    public void setContractType(ContractType contractType) {
+        this.contractType = contractType;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
+    public Integer getCommision() {
+        return commision;
+    }
+
+    public void setCommision(Integer commision) {
+        this.commision = commision;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public enum ContractType{

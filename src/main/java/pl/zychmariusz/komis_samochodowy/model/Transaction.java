@@ -20,9 +20,9 @@ public class Transaction {
     @JoinColumn(name = "customerID")
     private Customer customer;
 
-//    @OneToOne
-//    @JoinColumn(name = "contractID")
-//    private Contract contract;
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "contractID")
+    private Contract contract;
 
 //    @OneToOne
 //    @JoinColumn(name = "employeeID")
@@ -50,5 +50,13 @@ public class Transaction {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public Contract getContract() {
+        return contract;
+    }
+
+    public void setContract(Contract contract) {
+        this.contract = contract;
     }
 }

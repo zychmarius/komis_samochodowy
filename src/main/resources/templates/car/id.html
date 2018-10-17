@@ -72,6 +72,10 @@
             <th scope="row" >Opis</th>
             <td th:text="${car.description}"></td>
         </tr>
+        <tr>
+            <th scope="row" >Cena PLN</th>
+            <td th:text="${car.price}"></td>
+        </tr>
         </tbody>
     </table>
     <a th:href="@{'/transaction/buy/'+${car.carID}+''}">KUP</a>
